@@ -120,10 +120,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-30 fade-left-scroll">
                     <div class="agency">
                         <div class="image">
-                            <a class="img" href="agency-details.html"><img src="frontend/assets/images/projects/project-9.jpg" alt="" class="img-fluid"></a>
+                            <a class="img" href="{{ route('frontend.project.details', 'project-details') }}"><img src="frontend/assets/images/projects/project-9.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="agency-details.html">Royao Estates</a></h4>
+                            <h4 class="title"><a href="{{ route('frontend.project.details', 'project-details') }}">Royao Estates</a></h4>
                             <span>Gulshan</span>
                         </div>
                     </div>
@@ -134,10 +134,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-30 fade-left-scroll">
                     <div class="agency">
                         <div class="image">
-                            <a class="img" href="agency-details.html"><img src="frontend/assets/images/projects/project-3.jpg" alt="" class="img-fluid"></a>
+                            <a class="img" href="{{ route('frontend.project.details', 'project-details') }}"><img src="frontend/assets/images/projects/project-3.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="agency-details.html">Luzury Homes</a></h4>
+                            <h4 class="title"><a href="{{ route('frontend.project.details', 'project-details') }}">Luzury Homes</a></h4>
                             <span>Mirpur</span>
                         </div>
                     </div>
@@ -148,10 +148,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-30 fade-left-scroll">
                     <div class="agency">
                         <div class="image">
-                            <a class="img" href="agency-details.html"><img src="frontend/assets/images/projects/project-4.jpg" alt="" class="img-fluid"></a>
+                            <a class="img" href="{{ route('frontend.project.details', 'project-details') }}"><img src="frontend/assets/images/projects/project-4.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="agency-details.html">Duplex Estates</a></h4>
+                            <h4 class="title"><a href="{{ route('frontend.project.details', 'project-details') }}">Duplex Estates</a></h4>
                             <span>Banani</span>
                         </div>
                     </div>
@@ -162,10 +162,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-30 fade-left-scroll">
                     <div class="agency">
                         <div class="image">
-                            <a class="img" href="agency-details.html"><img src="frontend/assets/images/projects/project-8.jpg" alt="" class="img-fluid"></a>
+                            <a class="img" href="{{ route('frontend.project.details', 'project-details') }}"><img src="frontend/assets/images/projects/project-8.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="agency-details.html">Global Homes</a></h4>
+                            <h4 class="title"><a href="{{ route('frontend.project.details', 'project-details') }}">Global Homes</a></h4>
                             <span>Baridhara</span>
                         </div>
                     </div>
@@ -176,10 +176,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-30 fade-left-scroll">
                     <div class="agency">
                         <div class="image">
-                            <a class="img" href="agency-details.html"><img src="frontend/assets/images/projects/project-6.jpg" alt="" class="img-fluid"></a>
+                            <a class="img" href="{{ route('frontend.project.details', 'project-details') }}"><img src="frontend/assets/images/projects/project-6.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="agency-details.html">Green House Homes</a></h4>
+                            <h4 class="title"><a href="{{ route('frontend.project.details', 'project-details') }}">Green House Homes</a></h4>
                             <span>Uttara</span>
                         </div>
                     </div>
@@ -190,10 +190,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-30 fade-left-scroll">
                     <div class="agency">
                         <div class="image">
-                            <a class="img" href="agency-details.html"><img src="frontend/assets/images/projects/project-7.jpg" alt="" class="img-fluid"></a>
+                            <a class="img" href="{{ route('frontend.project.details', 'project-details') }}"><img src="frontend/assets/images/projects/project-7.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="agency-details.html">Landscape Estates</a></h4>
+                            <h4 class="title"><a href="{{ route('frontend.project.details', 'project-details') }}">Landscape Estates</a></h4>
                             <span>Dhanmondi</span>
                         </div>
                     </div>
@@ -229,7 +229,7 @@
                     <div class="property-item col">
                         <div class="property-inner">
                             <div class="image">
-                                <a href="single-properties.html"><img src="frontend/assets/images/property/property-1.jpg" alt=""></a>
+                                <a href="{{ route('frontend.property.details', 'property-details') }}"><img src="frontend/assets/images/property/property-1.jpg" alt=""></a>
                                 <ul class="property-feature">
                                     <li>
                                         <span class="area"><img src="frontend/assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -247,7 +247,7 @@
                             </div>
                             <div class="content">
                                 <div class="left">
-                                    <h3 class="title"><a href="single-properties.html">Friuli-Venezia Giulia</a></h3>
+                                    <h3 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">Friuli-Venezia Giulia</a></h3>
                                     <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">568 E 1st Ave, Mirpur</span>
                                 </div>
                                 <div class="right">
@@ -266,7 +266,7 @@
                         <div class="property-inner">
                             <div class="image">
                                 <span class="label">Feature</span>
-                                <a href="single-properties.html"><img src="frontend/assets/images/property/property-2.jpg" alt=""></a>
+                                <a href="{{ route('frontend.property.details', 'property-details') }}"><img src="frontend/assets/images/property/property-2.jpg" alt=""></a>
                                 <ul class="property-feature">
                                     <li>
                                         <span class="area"><img src="frontend/assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -284,7 +284,7 @@
                             </div>
                             <div class="content">
                                 <div class="left">
-                                    <h3 class="title"><a href="single-properties.html">Marvel de Villa</a></h3>
+                                    <h3 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">Marvel de Villa</a></h3>
                                     <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">450 E 1st Ave, Uttara</span>
                                 </div>
                                 <div class="right">
@@ -303,7 +303,7 @@
                         <div class="property-inner">
                             <div class="image">
                                 <span class="label">popular</span>
-                                <a href="single-properties.html"><img src="frontend/assets/images/property/property-3.jpg" alt=""></a>
+                                <a href="{{ route('frontend.property.details', 'property-details') }}"><img src="frontend/assets/images/property/property-3.jpg" alt=""></a>
                                 <ul class="property-feature">
                                     <li>
                                         <span class="area"><img src="frontend/assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -321,7 +321,7 @@
                             </div>
                             <div class="content">
                                 <div class="left">
-                                    <h3 class="title"><a href="single-properties.html">Ruposi Bangla Cottage</a></h3>
+                                    <h3 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">Ruposi Bangla Cottage</a></h3>
                                     <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">215 L AH Rod, Banani</span>
                                 </div>
                                 <div class="right">
@@ -339,7 +339,7 @@
                     <div class="property-item col">
                         <div class="property-inner">
                             <div class="image">
-                                <a href="single-properties.html"><img src="frontend/assets/images/property/property-4.jpg" alt=""></a>
+                                <a href="{{ route('frontend.property.details', 'property-details') }}"><img src="frontend/assets/images/property/property-4.jpg" alt=""></a>
                                 <ul class="property-feature">
                                     <li>
                                         <span class="area"><img src="frontend/assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -357,7 +357,7 @@
                             </div>
                             <div class="content">
                                 <div class="left">
-                                    <h3 class="title"><a href="single-properties.html">MayaKanon de Villa</a></h3>
+                                    <h3 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">MayaKanon de Villa</a></h3>
                                     <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">12 EA 1st Ave, Gulshan</span>
                                 </div>
                                 <div class="right">
@@ -375,7 +375,7 @@
                     <div class="property-item col">
                         <div class="property-inner">
                             <div class="image">
-                                <a href="single-properties.html"><img src="frontend/assets/images/property/property-5.jpg" alt=""></a>
+                                <a href="{{ route('frontend.property.details', 'property-details') }}"><img src="frontend/assets/images/property/property-5.jpg" alt=""></a>
                                 <ul class="property-feature">
                                     <li>
                                         <span class="area"><img src="frontend/assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -393,7 +393,7 @@
                             </div>
                             <div class="content">
                                 <div class="left">
-                                    <h3 class="title"><a href="single-properties.html">Azorex de South Villa</a></h3>
+                                    <h3 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">Azorex de South Villa</a></h3>
                                     <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">668 L 2nd Ave, Motijheel</span>
                                 </div>
                                 <div class="right">
@@ -412,7 +412,7 @@
                         <div class="property-inner">
                             <div class="image">
                                 <span class="label">Feature</span>
-                                <a href="single-properties.html"><img src="frontend/assets/images/property/property-6.jpg" alt=""></a>
+                                <a href="{{ route('frontend.property.details', 'property-details') }}"><img src="frontend/assets/images/property/property-6.jpg" alt=""></a>
                                 <ul class="property-feature">
                                     <li>
                                         <span class="area"><img src="frontend/assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -430,7 +430,7 @@
                             </div>
                             <div class="content">
                                 <div class="left">
-                                    <h3 class="title"><a href="single-properties.html">Radison de Villa</a></h3>
+                                    <h3 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">Radison de Villa</a></h3>
                                     <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">12 1st Ave, Uttara</span>
                                 </div>
                                 <div class="right">
@@ -473,9 +473,9 @@
                     <div class="property-slider-2">
                         <div class="property-2">
                             <div class="property-inner">
-                                <a href="single-properties.html" class="image"><img src="frontend/assets/images/property/property-13.jpg" alt=""></a>
+                                <a href="{{ route('frontend.property.details', 'property-details') }}" class="image"><img src="frontend/assets/images/property/property-13.jpg" alt=""></a>
                                 <div class="content">
-                                    <h4 class="title"><a href="single-properties.html">Friuli-Venezia Giulia</a></h4>
+                                    <h4 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">Friuli-Venezia Giulia</a></h4>
                                     <span class="location">568 E 1st Ave, Uttara</span>
                                     <h4 class="type">Rent <span>$550 <span>Month</span></span></h4>
                                     <ul>
@@ -488,9 +488,9 @@
                         </div>
                         <div class="property-2">
                             <div class="property-inner">
-                                <a href="single-properties.html" class="image"><img src="frontend/assets/images/property/property-14.jpg" alt=""></a>
+                                <a href="{{ route('frontend.property.details', 'property-details') }}" class="image"><img src="frontend/assets/images/property/property-14.jpg" alt=""></a>
                                 <div class="content">
-                                    <h4 class="title"><a href="single-properties.html">Marvel de Villa</a></h4>
+                                    <h4 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">Marvel de Villa</a></h4>
                                     <span class="location">450 E 1st Ave, New Palton</span>
                                     <h4 class="type">Rent <span>$550 <span>Month</span></span></h4>
                                     <ul>
@@ -599,7 +599,7 @@
                 <div class="property-item col-lg-4 col-md-6 col-12 mb-40">
                     <div class="property-inner">
                         <div class="image">
-                            <a href="single-properties.html"><img src="frontend/assets/images/property/property-1.jpg" alt=""></a>
+                            <a href="{{ route('frontend.property.details', 'property-details') }}"><img src="frontend/assets/images/property/property-1.jpg" alt=""></a>
                             <ul class="property-feature">
                                 <li>
                                     <span class="area"><img src="frontend/assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -617,7 +617,7 @@
                         </div>
                         <div class="content">
                             <div class="left">
-                                <h3 class="title"><a href="single-properties.html">Friuli-Venezia Giulia</a></h3>
+                                <h3 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">Friuli-Venezia Giulia</a></h3>
                                 <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">568 E 1st Ave, Mirpur</span>
                             </div>
                             <div class="right">
@@ -636,7 +636,7 @@
                     <div class="property-inner">
                         <div class="image">
                             <span class="label">Feature</span>
-                            <a href="single-properties.html"><img src="frontend/assets/images/property/property-2.jpg" alt=""></a>
+                            <a href="{{ route('frontend.property.details', 'property-details') }}"><img src="frontend/assets/images/property/property-2.jpg" alt=""></a>
                             <ul class="property-feature">
                                 <li>
                                     <span class="area"><img src="frontend/assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -654,7 +654,7 @@
                         </div>
                         <div class="content">
                             <div class="left">
-                                <h3 class="title"><a href="single-properties.html">Marvel de Villa</a></h3>
+                                <h3 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">Marvel de Villa</a></h3>
                                 <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">450 E 1st Ave, Mirpur</span>
                             </div>
                             <div class="right">
@@ -673,7 +673,7 @@
                     <div class="property-inner">
                         <div class="image">
                             <span class="label">popular</span>
-                            <a href="single-properties.html"><img src="frontend/assets/images/property/property-3.jpg" alt=""></a>
+                            <a href="{{ route('frontend.property.details', 'property-details') }}"><img src="frontend/assets/images/property/property-3.jpg" alt=""></a>
                             <ul class="property-feature">
                                 <li>
                                     <span class="area"><img src="frontend/assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -691,7 +691,7 @@
                         </div>
                         <div class="content">
                             <div class="left">
-                                <h3 class="title"><a href="single-properties.html">Ruposi Bangla Cottage</a></h3>
+                                <h3 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">Ruposi Bangla Cottage</a></h3>
                                 <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">215 L AH Rod, Mirpur</span>
                             </div>
                             <div class="right">
@@ -709,7 +709,7 @@
                 <div class="property-item col-lg-4 col-md-6 col-12 mb-40">
                     <div class="property-inner">
                         <div class="image">
-                            <a href="single-properties.html"><img src="frontend/assets/images/property/property-4.jpg" alt=""></a>
+                            <a href="{{ route('frontend.property.details', 'property-details') }}"><img src="frontend/assets/images/property/property-4.jpg" alt=""></a>
                             <ul class="property-feature">
                                 <li>
                                     <span class="area"><img src="frontend/assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -727,7 +727,7 @@
                         </div>
                         <div class="content">
                             <div class="left">
-                                <h3 class="title"><a href="single-properties.html">MayaKanon de Villa</a></h3>
+                                <h3 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">MayaKanon de Villa</a></h3>
                                 <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">12 EA 1st Ave, Mirpur</span>
                             </div>
                             <div class="right">
@@ -745,7 +745,7 @@
                 <div class="property-item col-lg-4 col-md-6 col-12 mb-40">
                     <div class="property-inner">
                         <div class="image">
-                            <a href="single-properties.html"><img src="frontend/assets/images/property/property-5.jpg" alt=""></a>
+                            <a href="{{ route('frontend.property.details', 'property-details') }}"><img src="frontend/assets/images/property/property-5.jpg" alt=""></a>
                             <ul class="property-feature">
                                 <li>
                                     <span class="area"><img src="frontend/assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -763,7 +763,7 @@
                         </div>
                         <div class="content">
                             <div class="left">
-                                <h3 class="title"><a href="single-properties.html">Azorex de South Villa</a></h3>
+                                <h3 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">Azorex de South Villa</a></h3>
                                 <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">668 L 2nd Ave, Uttara</span>
                             </div>
                             <div class="right">
@@ -782,7 +782,7 @@
                     <div class="property-inner">
                         <div class="image">
                             <span class="label">Feature</span>
-                            <a href="single-properties.html"><img src="frontend/assets/images/property/property-6.jpg" alt=""></a>
+                            <a href="{{ route('frontend.property.details', 'property-details') }}"><img src="frontend/assets/images/property/property-6.jpg" alt=""></a>
                             <ul class="property-feature">
                                 <li>
                                     <span class="area"><img src="frontend/assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -800,7 +800,7 @@
                         </div>
                         <div class="content">
                             <div class="left">
-                                <h3 class="title"><a href="single-properties.html">Radison de Villa</a></h3>
+                                <h3 class="title"><a href="{{ route('frontend.property.details', 'property-details') }}">Radison de Villa</a></h3>
                                 <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">12 1st Ave, Uttara</span>
                             </div>
                             <div class="right">

@@ -31,11 +31,24 @@ class FrontendController extends Controller
         // $products = Product::where('status', 'active')->latest()->get();
         return view('frontend.pages.property');
     } // End Method
+
+    public function PropertyDetails($slug)
+    {
+        $slug = 'property-details';
+        return view('frontend.details.property_details');
+    }
     public function ProjectList()
     {
         // $category = NULL;
         // $products = Product::where('status', 'active')->latest()->get();
         return view('frontend.pages.projects');
+    } // End Method
+
+    public function ProjectDetails($slug)
+    {
+        $slug = 'project-details';
+        // $project = Project::where('slug', $slug)->first();
+        return view('frontend.details.project_details');
     } // End Method
 
 

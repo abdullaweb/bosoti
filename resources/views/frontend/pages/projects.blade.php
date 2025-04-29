@@ -32,10 +32,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-30 fade-left-scroll">
                     <div class="agency">
                         <div class="image">
-                            <a class="img" href="agency-details.html"><img src="frontend/assets/images/projects/project-9.jpg" alt="" class="img-fluid"></a>
+                            <a class="img" href="{{ route('frontend.project.details', 'project-details') }}"><img src="frontend/assets/images/projects/project-9.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="agency-details.html">Royao Estates</a></h4>
+                            <h4 class="title"><a href="{{ route('frontend.project.details', 'project-details') }}">Royao Estates</a></h4>
                             <span>Gulshan</span>
                         </div>
                     </div>
@@ -46,10 +46,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-30 fade-left-scroll">
                     <div class="agency">
                         <div class="image">
-                            <a class="img" href="agency-details.html"><img src="frontend/assets/images/projects/project-3.jpg" alt="" class="img-fluid"></a>
+                            <a class="img" href="{{ route('frontend.project.details', 'project-details') }}"><img src="frontend/assets/images/projects/project-3.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="agency-details.html">Luzury Homes</a></h4>
+                            <h4 class="title"><a href="{{ route('frontend.project.details', 'project-details') }}">Luzury Homes</a></h4>
                             <span>Mirpur</span>
                         </div>
                     </div>
@@ -60,10 +60,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-30 fade-left-scroll">
                     <div class="agency">
                         <div class="image">
-                            <a class="img" href="agency-details.html"><img src="frontend/assets/images/projects/project-4.jpg" alt="" class="img-fluid"></a>
+                            <a class="img" href="{{ route('frontend.project.details', 'project-details') }}"><img src="frontend/assets/images/projects/project-4.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="agency-details.html">Duplex Estates</a></h4>
+                            <h4 class="title"><a href="{{ route('frontend.project.details', 'project-details') }}">Duplex Estates</a></h4>
                             <span>Banani</span>
                         </div>
                     </div>
@@ -74,10 +74,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-30 fade-left-scroll">
                     <div class="agency">
                         <div class="image">
-                            <a class="img" href="agency-details.html"><img src="frontend/assets/images/projects/project-8.jpg" alt="" class="img-fluid"></a>
+                            <a class="img" href="{{ route('frontend.project.details', 'project-details') }}"><img src="frontend/assets/images/projects/project-8.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="agency-details.html">Global Homes</a></h4>
+                            <h4 class="title"><a href="{{ route('frontend.project.details', 'project-details') }}">Global Homes</a></h4>
                             <span>Baridhara</span>
                         </div>
                     </div>
@@ -88,10 +88,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-30 fade-left-scroll">
                     <div class="agency">
                         <div class="image">
-                            <a class="img" href="agency-details.html"><img src="frontend/assets/images/projects/project-6.jpg" alt="" class="img-fluid"></a>
+                            <a class="img" href="{{ route('frontend.project.details', 'project-details') }}"><img src="frontend/assets/images/projects/project-6.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="agency-details.html">Green House Homes</a></h4>
+                            <h4 class="title"><a href="{{ route('frontend.project.details', 'project-details') }}">Green House Homes</a></h4>
                             <span>Uttara</span>
                         </div>
                     </div>
@@ -102,10 +102,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-30 fade-left-scroll">
                     <div class="agency">
                         <div class="image">
-                            <a class="img" href="agency-details.html"><img src="frontend/assets/images/projects/project-7.jpg" alt="" class="img-fluid"></a>
+                            <a class="img" href="{{ route('frontend.project.details', 'project-details') }}"><img src="frontend/assets/images/projects/project-7.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="content">
-                            <h4 class="title"><a href="agency-details.html">Landscape Estates</a></h4>
+                            <h4 class="title"><a href="{{ route('frontend.project.details', 'project-details') }}">Landscape Estates</a></h4>
                             <span>Dhanmondi</span>
                         </div>
                     </div>

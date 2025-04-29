@@ -42,8 +42,10 @@ Route::group(
             ],
             function () {
                 Route::get('/property', 'PropertyList')->name('property.list');
-                Route::get('/property/details/{slug}', 'PropertyDetails')->name('property.details');
+                Route::get('/details/{slug}', 'PropertyDetails')->name('property.details');
                 Route::get('/project', 'ProjectList')->name('project.list');
+                //project details
+                Route::get('/project-details/{slug}', 'ProjectDetails')->name('project.details');
                 Route::get('/product/{slug}', 'ProductDetails')->name('product.details');
                 Route::get('/category/{slug}', 'CatWiseProductList')->name('catwise.product.list');
                 Route::get('/contact-us', 'ContactUs')->name('contact-us');
