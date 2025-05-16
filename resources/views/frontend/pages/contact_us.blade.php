@@ -99,12 +99,13 @@
 
                 <div class="contact-form-wrap col-12">
                     <div class="contact-form">
-                        <form id="contact-form" action="#">
+                        <form action="{{ route('admin.contact.store') }}" method="POST">
+                            @csrf
                             <div class="row">
-                                <div class="col-md-6 col-12 mb-30"><input name="name" type="text" placeholder="Name"></div>
-                                <div class="col-md-6 col-12 mb-30"><input name="email" type="email" placeholder="Email"></div>
-                                <div class="col-md-6 col-12 mb-30"><input name="phone" type="text" placeholder="Phone"></div>
-                                <div class="col-md-6 col-12 mb-30"><input name="subject" type="text" placeholder="Subject"></div>
+                                <div class="col-md-6 col-12 mb-30"><input name="name" type="text" placeholder="Name" required></div>
+                                <div class="col-md-6 col-12 mb-30"><input name="email" type="email" placeholder="Email" required></div>
+                                <div class="col-md-6 col-12 mb-30"><input name="phone" type="text" placeholder="Phone" required></div>
+                                <div class="col-md-6 col-12 mb-30"><input name="subject" type="text" placeholder="Subject" required></div>
                                 <div class="col-12 mb-30">
                                     <textarea name="message" placeholder="Message"></textarea>
                                 </div>
@@ -119,4 +120,18 @@
         </div>
     </div>
     <!--New property section end-->
+
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            @if (session('success'))
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Your message has been sent successfully!',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    timer: 4000
+                });
+            @endif
+        })
+    </script>
 @endsection
