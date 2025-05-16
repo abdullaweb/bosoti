@@ -29,7 +29,7 @@
                             <li class="{{ request()->routeIs('frontend.project.list') ? 'active' : '' }}">
                                 <a href="{{ route('frontend.project.list') }}">Projects</a>
                             </li>
-                            <li class="{{ request()->routeIs('frontend.service.list') ? 'active' : '' }}">
+                            <li class="{{ request()->routeIs('frontend.contact-us') ? 'active' : '' }}">
                                 <a href="{{ route('frontend.contact-us') }}">Contact</a>
                             </li>
                         </ul>
