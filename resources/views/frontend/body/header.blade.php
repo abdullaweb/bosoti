@@ -15,21 +15,21 @@
                 <div class="col d-none d-lg-flex">
                     <nav class="main-menu">
                         <ul>
-                            <li>
+                            <li class="{{ request()->is('/') ? 'active' : '' }}">
                                 <a href="{{ url('/') }}">Home</a>
                             </li>
-                            <li>
+                            <li class="{{ request()->routeIs('frontend.about-us') ? 'active' : '' }}">
                                 <a href="{{ route('frontend.about-us') }}">
                                     About
                                 </a>
                             </li>
-                            <li>
+                            <li class="{{ request()->routeIs('frontend.property.list') ? 'active' : '' }}">
                                 <a href="{{ route('frontend.property.list') }}">Properties</a>
                             </li>
-                            <li>
+                            <li class="{{ request()->routeIs('frontend.project.list') ? 'active' : '' }}">
                                 <a href="{{ route('frontend.project.list') }}">Projects</a>
                             </li>
-                            <li>
+                            <li class="{{ request()->routeIs('frontend.service.list') ? 'active' : '' }}">
                                 <a href="{{ route('frontend.contact-us') }}">Contact</a>
                             </li>
                         </ul>
