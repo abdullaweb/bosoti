@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\OurTeamController;
 use App\Http\Controllers\Backend\ProductCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProjectController;
+use App\Http\Controllers\Backend\ProjectUnitController;
 use App\Http\Controllers\Backend\ServiceCategoryController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\Settings\SettingController;
@@ -160,6 +161,23 @@ Route::group(
                 Route::get('/edit/{id}', 'LocationEdit')->name('edit');
                 Route::post('/update', 'LocationUpdate')->name('update');
                 Route::get('/delete/{id}', 'LocationDelete')->name('delete');
+            },
+        );
+
+        // Project Unit All Routes
+        Route::group(
+            [
+                'prefix' => 'project-unit',
+                'controller' => ProjectUnitController::class,
+                'as' => 'project-unit.',
+            ],
+            function () {
+                Route::get('/list', 'ProjectUnitList')->name('list');
+                Route::get('/add', 'ProjectUnitAdd')->name('add');
+                Route::post('/store', 'ProjectUnitStore')->name('store');
+                Route::get('/edit/{id}', 'ProjectUnitEdit')->name('edit');
+                Route::post('/update', 'ProjectUnitUpdate')->name('update');
+                Route::get('/delete/{id}', 'ProjectUnitDelete')->name('delete');
             },
         );
 

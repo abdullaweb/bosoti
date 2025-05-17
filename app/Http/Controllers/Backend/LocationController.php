@@ -4,13 +4,11 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Location;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
-use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Gd\Driver;
+
 
 class LocationController extends Controller
 {
