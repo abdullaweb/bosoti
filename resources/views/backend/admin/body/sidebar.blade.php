@@ -56,6 +56,7 @@
                     <span>Projects</span>
                 </a>
                 <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.location.list') }}">Location</a></li>
                     <li><a class="nav-link" href="{{ route('admin.project.list') }}">Projects</a></li>
                 </ul>
             </li>

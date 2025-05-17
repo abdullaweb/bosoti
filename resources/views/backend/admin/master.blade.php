@@ -16,17 +16,26 @@
     <link rel="stylesheet" href="{{ asset('/backend/assets/bundles/summernote/summernote-bs4.css') }}">
     <link rel="stylesheet" href="{{ asset('/backend/assets/bundles/jquery-selectric/selectric.css') }}">
 
+
+
+
+
     {{-- Template CSS --}}
     <link rel="stylesheet" href="{{ asset('/backend/assets/bundles/datatables/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/backend/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/backend/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/backend/assets/css/components.css') }}">
 
+
+
+
     {{-- Custom Style CSS --}}
     <link rel="stylesheet" href="{{ asset('/backend/assets/css/custom.css') }}">
 
     {{-- Favicon Icon --}}
     <link rel="icon" href="/frontend/assets/images/bosoti-logo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 </head>
 
@@ -83,6 +92,29 @@
     <script src="{{ asset('/backend/assets/js/page/index.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/page/datatables.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/page/widget-data.js') }}"></script>
+
+
+
+
+
+    {{-- Date Picker --}}
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        $(function() {
+            $(".date_picker").flatpickr({
+                enableTime: false,
+                dateFormat: "{{ config('app.date_format', 'Y-m-d') }}",
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('select2').select2(); // or specify class if needed
+        });
+    </script>
+
 
     {{-- Template JS File --}}
     <script src="{{ asset('/backend/assets/js/scripts.js') }}"></script>

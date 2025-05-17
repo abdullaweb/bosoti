@@ -13,14 +13,17 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('project_title')->nullable();
-            $table->longText('project_description')->nullable();
+            $table->string('name');
             $table->string('slug')->unique();
-            $table->string('project_location')->nullable();
+            $table->text('description')->nullable();
+            $table->enum('status', allowed: ['upcoming', 'ongoing', 'completed'])->default('upcoming');
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->foreignId('location_id')->constrained()->onDelete('cascade');
             $table->string('project_image')->nullable();
+            $table->string('meta_keyword')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
-            $table->string('meta_keyword')->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();

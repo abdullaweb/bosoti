@@ -23,10 +23,69 @@
 
                                 @include('widgets.errors')
 
-                                <form id="form" action="{{ route('admin.project.store') }}" method="post" enctype="multipart/form-data" data-parsley-validate>
-
+                                <form action="{{ isset($project) ? route('admin.project.update', $project) : route('admin.project.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
 
+                                    <!-- Project Name -->
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Project Name</label>
+                                        <input type="text" name="name" class="form-control" value="{{ old('name', $project->name ?? '') }}" required>
+                                    </div>
+
+                                    <!-- Slug -->
+                                    <div class="mb-3">
+                                        <label for="slug" class="form-label">Slug</label>
+                                        <input type="text" name="slug" class="form-control" value="{{ old('slug', $project->slug ?? '') }}" required>
+                                    </div>
+
+                                    <!-- Description -->
+                                    <div class="mb-3">
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <label class="col-form-label">Long Description</label>
+                                                <textarea class="summernote" name="description" required data-parsley-required-message="project Long Description is required*">{{ old('description') }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Status -->
+                                    <div class="mb-3">
+                                        <label for="status" class="form-label">Status</label>
+                                        <select name="status" class="">
+                                            <option value="upcoming">
+                                                Upcoming
+                                            </option>
+                                            <option value="ongoing">Ongoing</option>
+                                            <option value="completed">Completed</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Dates -->
+                                    <div class="mb-3">
+                                        <label for="start_date" class="form-label">Start Date</label>
+                                        <input type="date" name="start_date" class="form-control date_picker" value="{{ old('start_date', $project->start_date ?? '') }}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="end_date" class="form-label">End Date</label>
+                                        <input type="date" name="end_date" class="form-control date_picker" value="{{ old('end_date', $project->end_date ?? '') }}">
+                                    </div>
+
+                                    <!-- Location -->
+                                    <div class="mb-3">
+                                        <label for="location_id" class="form-label">Location</label>
+                                        <select name="location_id" class="form-control select2" required>
+                                            <option value="" disabled>Select Location</option>
+                                            @foreach ($locations as $location)
+                                                <option value="{{ $location->id }}" {{ old('location_id', $project->location_id ?? '') == $location->id ? 'selected' : '' }}>
+                                                    {{ $location->address }}, {{ $location->city }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+
+                                    </div>
+
+                                    <!-- Images -->
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
                                             <label class="col-form-label">Image</label>
@@ -34,34 +93,6 @@
                                                 <label for="image-upload" id="image-label">Choose File</label>
                                                 <input type="file" name="project_image" id="image-upload" required data-parsley-required-message="project Image is required*" />
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row mb-4">
-                                        <div class="col-md-8">
-                                            <label class="col-form-label">Project Title</label>
-                                            <input type="text" class="form-control @error('project_title') is-invalid @enderror" name="title" value="{{ old('title') }}" required data-parsley-required-message="Project Title is required*">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row mb-4">
-                                        <div class="col-md-8">
-                                            <label class="col-form-label"> Slug</label>
-                                            <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ old('slug') }}" required data-parsley-required-message="project Title is required*">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row mb-4">
-                                        <div class="col-md-8">
-                                            <label class="col-form-label"> Location</label>
-                                            <input type="text" class="form-control @error('project_location') is-invalid @enderror" name="project_location" value="{{ old('project_location') }}" required data-parsley-required-message="project Location is required*">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row mb-4">
-                                        <div class="col-md-8">
-                                            <label class="col-form-label">Long Description</label>
-                                            <textarea class="summernote" name="description" required data-parsley-required-message="project Long Description is required*">{{ old('description') }}</textarea>
                                         </div>
                                     </div>
 
@@ -91,12 +122,12 @@
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
                                             <label class="col-form-label"></label>
-                                            <button class="btn btn-primary">Create</button>
+                                            <button class="btn btn-primary">
+                                                {{ isset($project) ? 'Update Project' : 'Create Project' }}
+                                            </button>
                                         </div>
                                     </div>
-
                                 </form>
-
                             </div>
                         </div>
                     </div>

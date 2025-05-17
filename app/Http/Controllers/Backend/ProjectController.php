@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Location;
 use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
 {
@@ -27,52 +29,45 @@ class ProjectController extends Controller
     {
         $title = 'Project Add';
 
-        return view('backend.project.add', compact('title'));
+        $locations = Location::latest()->get();
+
+        return view('backend.project.add', compact('title', 'locations'));
     } // End Method
 
     public function ProjectStore(Request $request)
     {
-        // dd($request->all());
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'title' => 'required|max:100',
-                'project_image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
-                'description' => 'required|string',
-            ],
-            [
-                'title.required' => 'Title is required',
-                'title.max' => 'Title is too long',
-                'project_image.required' => 'Project image is required',
-                'project_image.image' => 'Project image must be an image',
-                'project_image.mimes' => 'Project image must be a file of type: jpeg, png, jpg, gif, svg',
-                'project_image.max' => 'Project image must be less than 1MB',
-                'description.required' => 'Long description is required',
-            ],
-        );
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+         $validator = $request->validate([
+        'name' => 'required|string',
+        'slug' => 'required|unique:projects,slug',
+        'status' => 'required|in:upcoming,ongoing,completed',
+        'location_id' => 'required|exists:locations,id',
+        'images.*' => 'image|max:2048',
+        ]);
 
         DB::beginTransaction();
 
         try {
             $project = new Project();
-            $project->project_title = $request->title;
-            $project->project_description = $request->description;
-            $project->created_by = Auth::user()->id;
+            $project->name = $request->input('name');
+            $project->slug = $request->input('slug');
+            $project->description = $request->input('description');
+            $project->status = $request->input('status');
+            $startDate = $request->input('start_date');
+            $endDate = $request->input('end_date');
+            $project->start_date = $startDate;
+            $project->end_date = $endDate;
+            $project->location_id = $request->input('location_id');
             $project->meta_title = $request->meta_title;
             $project->meta_description = $request->meta_description;
             $project->meta_keyword = $request->meta_keyword;
-
+           
 
             if ($request->file('project_image')) {
                 $project_image = $request->file('project_image');
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $project_image->getClientOriginalExtension();
                 $image = $manager->read($project_image);
-                // $image->resize(1600, 500);
+                $image->resize(1000, 1437);
                 $image->toJpeg(80)->save(base_path('public/uploads/projects/' . $name_gen));
                 $project->project_image = 'uploads/projects/' . $name_gen;
             }
@@ -85,7 +80,7 @@ class ProjectController extends Controller
             return redirect()->route('admin.project.list')->with('success', 'Project created successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Error occurred while creating Project: ' . $e->getMessage());
+            Log::error('Error occurred while creating Project:' . $e->getMessage() . ' Line: ' . $e->getLine() . ' in ' . __FILE__);
             return redirect()->back()->with('error', 'Something went wrong!')->withInput();
         }
     } // End Method
@@ -94,33 +89,23 @@ class ProjectController extends Controller
     {
         $title = 'Project Edit';
         $project = Project::findOrFail($id);
+        if (!$project) {
+            abort(404);
+        }
+        $locations = Location::latest()->get();
 
-        return view('backend.Project.edit', compact('title', 'project'));
+        return view('backend.project.edit', compact('title', 'project', 'locations'));
     } // End Method
 
     public function ProjectUpdate(Request $request)
     {
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'title' => 'required|max:100',
-                'project_image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
-                'description' => 'required|string',
-            ],
-            [
-                'title.required' => 'Title is required',
-                'title.max' => 'Title is too long',
-                'project_image.required' => 'Project image is required',
-                'project_image.image' => 'Project image must be an image',
-                'project_image.mimes' => 'Project image must be a file of type: jpeg, png, jpg, gif, svg',
-                'project_image.max' => 'Project image must be less than 1MB',
-                'description.required' => 'Description is required',
-            ],
-        );
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+         $validator = $request->validate([
+        'name' => 'required|string',
+        'slug' => 'required|unique:projects,slug,' . $request->id . ',id',
+        'status' => 'required|in:upcoming,ongoing,completed',
+        'location_id' => 'required|exists:locations,id',
+        'images.*' => 'image|max:2048',
+        ]);
 
         DB::beginTransaction();
 
@@ -129,9 +114,15 @@ class ProjectController extends Controller
             if (!$project) {
                 abort(404);
             }
-            $project->project_title = $request->title;
-            $project->project_description = $request->description;
-            $project->updated_by = Auth::user()->id;
+            $project->name = $request->input('name');
+            $project->slug = $request->input('slug');
+            $project->description = $request->input('description');
+            $project->status = $request->input('status');
+            $startDate = $request->input('start_date');
+            $endDate = $request->input('end_date');
+            $project->start_date = $startDate;
+            $project->end_date = $endDate;
+            $project->location_id = $request->input('location_id');
             $project->meta_title = $request->meta_title;
             $project->meta_description = $request->meta_description;
             $project->meta_keyword = $request->meta_keyword;
@@ -146,7 +137,7 @@ class ProjectController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $project_image->getClientOriginalExtension();
                 $image = $manager->read($project_image);
-                // $image->resize(1600, 500);
+                $image->resize(1000, 1437);
                 $image->toJpeg(80)->save(base_path('public/uploads/projects/' . $name_gen));
                 $project->project_image = 'uploads/projects/' . $name_gen;
             }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\Blog\BlogController;
 use App\Http\Controllers\Backend\CareerController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\JobApplyController;
+use App\Http\Controllers\Backend\LocationController;
 use App\Http\Controllers\Backend\OurTeamController;
 use App\Http\Controllers\Backend\ProductCategoryController;
 use App\Http\Controllers\Backend\ProductController;
@@ -128,7 +129,7 @@ Route::group(
             },
         );
 
-        // Project All Routes
+        // Projects All Routes
         Route::group(
             [
                 'prefix' => 'project',
@@ -144,6 +145,24 @@ Route::group(
                 Route::get('/delete/{id}', 'ProjectDelete')->name('delete');
             },
         );
+
+        // Location All Routes
+        Route::group(
+            [
+                'prefix' => 'location',
+                'controller' => LocationController::class,
+                'as' => 'location.',
+            ],
+            function () {
+                Route::get('/list', 'LocationList')->name('list');
+                Route::get('/add', 'LocationAdd')->name('add');
+                Route::post('/store', 'LocationStore')->name('store');
+                Route::get('/edit/{id}', 'LocationEdit')->name('edit');
+                Route::post('/update', 'LocationUpdate')->name('update');
+                Route::get('/delete/{id}', 'LocationDelete')->name('delete');
+            },
+        );
+
 
         // Client All Routes
         Route::group(
