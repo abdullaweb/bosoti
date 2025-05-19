@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
 use App\Models\Blog;
 use App\Models\Career;
+use App\Models\Location;
 use App\Models\OurTeam;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProjectUnit;
 use App\Models\Setting;
 use App\Models\PowerSolution;
 use App\Models\Service;
@@ -39,16 +41,21 @@ class FrontendController extends Controller
     }
     public function ProjectList()
     {
-        // $category = NULL;
-        // $products = Product::where('status', 'active')->latest()->get();
-        return view('frontend.pages.projects');
+        $projects = Project::latest()->get();
+        return view('frontend.pages.projects', compact('projects'));
     } // End Method
 
     public function ProjectDetails($slug)
     {
-        $slug = 'project-details';
-        // $project = Project::where('slug', $slug)->first();
-        return view('frontend.details.project_details');
+        $project = Project::where('slug', $slug)->first();
+        $projectUnitDetails = ProjectUnit::where('project_id', $project->id)->first();
+
+        // $relatedProjects = Project::where('id', '!=', $project->id)->where('unit_type',$projectUnitDetails->unit_type)
+        //     ->latest()->get();
+
+        // dd($relatedProjects);
+
+        return view('frontend.details.project_details', compact('projectUnitDetails', 'project'));
     } // End Method
 
 

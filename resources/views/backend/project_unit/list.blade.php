@@ -48,7 +48,7 @@
                                             @foreach ($project_units as $key => $item)
                                                 <tr>
                                                     <td>{{ $project_units->count() - $key }}</td>
-                                                    <td>{{ $item->project->name }}</td>
+                                                    <td>{{ $item->project->name ?? '' }}</td>
                                                     <td>{{ $item->title }}</td>
                                                     <td>{{ $item->unit_type }}</td>
                                                     <td>{{ $item->price }}</td>

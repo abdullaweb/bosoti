@@ -38,35 +38,32 @@
             <!--Agent Content-->
             <div class="col-lg-7 col-12 fade-left-scroll">
                 <div class="agent-content">
-                    <h3 class="title">Donald Palmer</h3>
-                    <p>Donald Palmer is a Specialist Real Estate Agent with 8 years of   Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?</p>
+                    {!! $project->description !!}
                     <div class="row">
                         <div class="col-md-6 col-12 mb-30">
-                            <h4>Persoanl Info</h4>
+                            <h4>Address Info</h4>
                             <ul>
-                                <li><i class="pe-7s-map"></i>256, 1st AVE, Manchester 125 , Noth England</li>
-                                <li><i class="pe-7s-phone"></i><a href="#">(756) 447 5779</a></li>
-                                <li><i class="pe-7s-mail-open"></i><a href="#">info@example.com</a></li>
-                                <li><i class="pe-7s-global"></i><a href="#">www.example.com</a></li>
-                                <li><i class="pe-7s-photo"></i>5 Properties</li>
+                                <li><i class="fas fa-map-marker-alt"></i>{{ $project->location->city }}</li>
+                                <li><i class="fas fa-flag"></i>{{ $project->location->country }}</li>
+                                <li><i class="fas fa-network-wired"></i>{{ $project->location->state }}</li>
+                                <li><i class="fas fa-map-marker-alt"></i>{{ $project->location->latitude }}</li>
+                                <li><i class="fas fa-map-marker-alt"></i>{{ $project->location->longitude }}</li>
                             </ul>
-                            <div class="social">
-                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                                <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-                            </div>
                         </div>
+                        @if ($projectUnitDetails)   
                         <div class="col-md-6 col-12 mb-30">
-                            <h4>Agency Info</h4>
+                            <h4>Unit Details</h4>
                             <ul>
-                                <li><span>Agency:</span> <span><a href="#">Royao Estates</a> <a href="#">Duplex Estates</a></span></li>
-                                <li><span>Company:</span> <span>GTA5</span></li>
-                                <li><span>Licenses:</span> <span>AB7876A6</span></li>
-                                <li><span>Number:</span> <span><a href="#">(756) 447 5744</a></span></li>
-                                <li><span>Address:</span> <span>246, 2st AVE, Manchester 126 , Noth England</span></li>
+                                <li>
+                                    <i class="fas fa-home"></i>Unit Type: &nbsp; <span>{{ $projectUnitDetails->unit_type }}</span>
+                                </li>
+                                <li><i class="fas fa-expand-arrows-alt"></i>Unit Size: &nbsp; &nbsp;  <span>{{ $projectUnitDetails->area_sqft }} SqFt</span></li>
+                                <li><i class="fas fa-bed"></i>Bedrooms: &nbsp; <span>{{ $projectUnitDetails->bedrooms }}</span></li>
+                                <li><i class="fas fa-shower"></i>Bathrooms: &nbsp;<span>{{ $projectUnitDetails->bathrooms }}</span></li>
+                                <li><i class="fas fa-car"></i>Floor: &nbsp; <span>{{ $projectUnitDetails->floor }}</span></li>
                             </ul>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

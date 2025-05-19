@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use Illuminate\Validation\Rule;
+use Str;
 
 class ProjectController extends Controller
 {
@@ -49,7 +50,7 @@ class ProjectController extends Controller
         try {
             $project = new Project();
             $project->name = $request->input('name');
-            $project->slug = $request->input('slug');
+            $project->slug = Str::slug($request->input('name'));
             $project->description = $request->input('description');
             $project->status = $request->input('status');
             $startDate = $request->input('start_date');
@@ -115,7 +116,7 @@ class ProjectController extends Controller
                 abort(404);
             }
             $project->name = $request->input('name');
-            $project->slug = $request->input('slug');
+            $project->slug = Str::slug($request->input('name'));
             $project->description = $request->input('description');
             $project->status = $request->input('status');
             $startDate = $request->input('start_date');

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('project_units', function (Blueprint $table) {
             $table->id();
             $table->foreignId('project_id')->constrained()->onDelete('cascade');
-            $table->string('title');
+            $table->string('title'); // e.g., 1 Bedroom Apartment
             $table->string('unit_type'); // e.g., Apartment, Villa, etc.
             $table->decimal('price', 15, 2);
             $table->decimal('area_sqft', 10, 2);

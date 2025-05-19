@@ -37,7 +37,7 @@
                                             <tr>
                                                 <th>SN</th>
                                                 <th>Image</th>
-                                                <th>Project Title</th>
+                                                <th>Project Name</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -53,7 +53,7 @@
                                                             <span>No Image</span>
                                                         @endif
                                                     </td>
-                                                    <td>{{ $item->project_title }}</td>
+                                                    <td>{{ $item->name }}</td>
                                                     <td>
                                                         <div class="table_actions">
                                                             <a href="{{ route('admin.project.edit', $item->id) }}" class="btn btn-outline-primary" alt="Edit" title="Edit"><i class="far fa-edit"></i></a>
