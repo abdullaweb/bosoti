@@ -29,7 +29,9 @@ class FrontendController extends Controller
 
         $projects = Project::distinct('status')->get('status');
 
-        return view('frontend.index', compact('locations', 'projectUnitDetails', 'projects'));
+        $latestProjects = Project::latest()->take(6)->get();
+
+        return view('frontend.index', compact('locations', 'projectUnitDetails', 'projects', 'latestProjects'));
     } // End Method
 
     public function PropertyList()
