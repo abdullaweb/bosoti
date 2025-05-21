@@ -33,59 +33,38 @@
                     <!--Property Search start-->
                     <div class="property-search">
 
-                        <form action="#">
+                        <form action="{{ route('frontend.project.search') }}" method="GET">
+
+                            @csrf
 
                             <div>
-                                <select class="nice-select">
+                                <select class="nice-select" name="city">
                                     <option>All Cities</option>
-                                    <option>Athina</option>
-                                    <option>Austin</option>
-                                    <option>Baytown</option>
-                                    <option>Brampton</option>
-                                    <option>Cedar Hill</option>
-                                    <option>Chester</option>
-                                    <option>Chicago</option>
-                                    <option>Coleman</option>
-                                    <option>Corpus Christi</option>
-                                    <option>Dallas</option>
-                                    <option>distrito federal</option>
-                                    <option>Fayetteville</option>
-                                    <option>Galveston</option>
-                                    <option>Jersey City</option>
-                                    <option>Los Angeles</option>
-                                    <option>Midland</option>
-                                    <option>New York</option>
-                                    <option>Odessa</option>
-                                    <option>Reno</option>
-                                    <option>San Angelo</option>
-                                    <option>San Antonio</option>
-                                </select>
-                            </div>
-
-
-                            <div>
-                                <select class="nice-select">
-                                    <option>Type</option>
-                                    <option>Apartment</option>
-                                    <option>Cafe</option>
-                                    <option>House</option>
-                                    <option>Restaurant</option>
-                                    <option>Store</option>
-                                    <option>Villa</option>
+                                    @foreach ($locations as $location)
+                                    <option class="{{ $location->city }}">{{ $location->city }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
                             <div>
-                                <select class="nice-select">
-                                    <option>Status</option>
-                                    <option>Upcoming</option>
-                                    <option>Ongoing</option>
-                                    <option>Ready</option>
+                                <select class="nice-select" name="unit_type">
+                                    <option>All Types</option>
+                                    @foreach ($projectUnitDetails as $unit)
+                                         <option class="{{ $unit->unit_type }}">{{ $unit->unit_type }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
                             <div>
-                                <button>search</button>
+                                <select class="nice-select" name="status">
+                                    @foreach ($projects as $project)
+                                    <option value="{{ $project->status }}">{{ $project->status }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div>
+                                <button type="submit">search</button>
                             </div>
 
                         </form>

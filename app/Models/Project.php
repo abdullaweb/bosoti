@@ -15,4 +15,9 @@ class Project extends Model
     {
         return $this->belongsTo(Location::class, 'location_id', 'id');
     } // End Method
+
+    public function projectUnit()
+    {
+        return $this->hasMany(ProjectUnit::class, 'project_id', 'id');
+    } // End Method
 }

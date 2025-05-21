@@ -76,7 +76,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="copyright text-center">
-                        <p>Copyright &copy;2016 - {{ date('Y') }} <a href="#">Bosoti</a>. All rights reserved. Developed by <a href="https://nebulaitbd.com/" target="_blank">Nebula IT</a></p>
+                        <p>Copyright &copy;2016 - {{ date('Y') }} <a href="#">Bosoti</a>. All rights reserved. Developed by <a href="https://web.nebulaitbd.com/" target="_blank">Nebula IT</a></p>
                     </div>
                 </div>
             </div>

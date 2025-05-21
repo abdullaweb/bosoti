@@ -23,8 +23,13 @@ class FrontendController extends Controller
 {
     public function Index()
     {
+        $locations = Location::distinct('city')->orderBy('city', 'asc')->get('city');
 
-        return view('frontend.index');
+        $projectUnitDetails = ProjectUnit::distinct('unit_type')->get('unit_type');
+
+        $projects = Project::distinct('status')->get('status');
+
+        return view('frontend.index', compact('locations', 'projectUnitDetails', 'projects'));
     } // End Method
 
     public function PropertyList()
@@ -150,5 +155,24 @@ class FrontendController extends Controller
     {
         $powerSolutions = PowerSolution::get();
         return view('frontend.pages.power_solution', compact('powerSolutions'));
+    } // End Method
+
+    public function ProjectSearch(Request $request)
+    {
+        // dd($request->all());
+        // Fetching distinct values for filters
+        $city = $request->input('city');
+        $unit_type = $request->input('unit_type');
+        $status = $request->input('status');
+
+        $projects = Project::with('projectUnit')
+            ->where('status', 'like', '%' . $status . '%')->whereHas('projectUnit', function ($query) use ($city, $unit_type) {
+                $query->where('unit_type', 'like', '%' . $unit_type . '%');
+            })->latest()->get();
+
+        // dd($projects);
+
+        return view('frontend.pages.project_search', compact('projects', 'city', 'unit_type', 'status'));
+
     } // End Method
 }

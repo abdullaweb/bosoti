@@ -48,6 +48,9 @@ Route::group(
                 Route::get('/project', 'ProjectList')->name('project.list');
                 //project details
                 Route::get('/project-details/{slug}', 'ProjectDetails')->name('project.details');
+
+                //project search
+                Route::get('/project-search', 'ProjectSearch')->name('project.search');
                 Route::get('/product/{slug}', 'ProductDetails')->name('product.details');
                 Route::get('/category/{slug}', 'CatWiseProductList')->name('catwise.product.list');
                 Route::get('/contact-us', 'ContactUs')->name('contact-us');
