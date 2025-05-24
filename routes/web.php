@@ -9,16 +9,11 @@ use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\JobApplyController;
 use App\Http\Controllers\Backend\LocationController;
 use App\Http\Controllers\Backend\OurTeamController;
-use App\Http\Controllers\Backend\ProductCategoryController;
-use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProjectController;
 use App\Http\Controllers\Backend\ProjectUnitController;
-use App\Http\Controllers\Backend\ServiceCategoryController;
-use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\Settings\SettingController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ClientController;
-use App\Http\Controllers\Backend\PowerSolutionController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\RoleMiddleware;
@@ -34,7 +29,6 @@ Route::group(
         Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
         // Contact Message Store Route
         Route::post('/admin/contact/store', [ContactController::class, 'ContactStore'])->name('admin.contact.store');
-        Route::post('/admin/job-application/store', [JobApplyController::class, 'JobApplyStore'])->name('admin.job_apply.store');
 
         Route::group(
             [
@@ -51,15 +45,10 @@ Route::group(
 
                 //project search
                 Route::get('/project-search', 'ProjectSearch')->name('project.search');
-                Route::get('/product/{slug}', 'ProductDetails')->name('product.details');
-                Route::get('/category/{slug}', 'CatWiseProductList')->name('catwise.product.list');
                 Route::get('/contact-us', 'ContactUs')->name('contact-us');
                 Route::get('/about-us', 'AboutUs')->name('about-us');
                 Route::get('/privacy-policy', 'PrivacyPolicy')->name('privacy.policy');
                 Route::get('/terms-conditions', 'TermsConditions')->name('terms.conditions');
-                Route::get('/team', 'TeamList')->name('team.list');
-                Route::get('/career', 'CareerList')->name('career.list');
-                Route::get('/job/{slug}', 'CareerDetails')->name('career.details');
             },
         );
     },
@@ -96,40 +85,6 @@ Route::group(
                 Route::get('/edit/{id}', 'SliderEdit')->name('edit');
                 Route::post('/update', 'SliderUpdate')->name('update');
                 Route::get('/delete/{id}', 'SliderDelete')->name('delete');
-            },
-        );
-
-        // Product Category All Routes
-        Route::group(
-            [
-                'prefix' => 'product-category',
-                'controller' => ProductCategoryController::class,
-                'as' => 'product-category.',
-            ],
-            function () {
-                Route::get('/list', 'ProductCategoryList')->name('list');
-                Route::get('/add', 'ProductCategoryAdd')->name('add');
-                Route::post('/store', 'ProductCategoryStore')->name('store');
-                Route::get('/edit/{id}', 'ProductCategoryEdit')->name('edit');
-                Route::post('/update', 'ProductCategoryUpdate')->name('update');
-                Route::get('/delete/{id}', 'ProductCategoryDelete')->name('delete');
-            },
-        );
-
-        // Product All Routes
-        Route::group(
-            [
-                'prefix' => 'product',
-                'controller' => ProductController::class,
-                'as' => 'product.',
-            ],
-            function () {
-                Route::get('/list', 'ProductList')->name('list');
-                Route::get('/add', 'ProductAdd')->name('add');
-                Route::post('/store', 'ProductStore')->name('store');
-                Route::get('/edit/{id}', 'ProductEdit')->name('edit');
-                Route::post('/update', 'ProductUpdate')->name('update');
-                Route::get('/delete/{id}', 'ProductDelete')->name('delete');
             },
         );
 
@@ -199,23 +154,6 @@ Route::group(
                 Route::get('/edit/{id}', 'ClientEdit')->name('edit');
                 Route::post('/update', 'ClientUpdate')->name('update');
                 Route::get('/delete/{id}', 'ClientDelete')->name('delete');
-            },
-        );
-
-        // Power Solution All Routes
-        Route::group(
-            [
-                'prefix' => 'power-solution',
-                'controller' => PowerSolutionController::class,
-                'as' => 'power.',
-            ],
-            function () {
-                Route::get('/list', 'PowerSolutionList')->name('list');
-                Route::get('/add', 'PowerSolutionAdd')->name('add');
-                Route::post('/store', 'PowerSolutionStore')->name('store');
-                Route::get('/edit/{id}', 'PowerSolutionEdit')->name('edit');
-                Route::post('/update', 'PowerSolutionUpdate')->name('update');
-                Route::get('/delete/{id}', 'PowerSolutionDelete')->name('delete');
             },
         );
 

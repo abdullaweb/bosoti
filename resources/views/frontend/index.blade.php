@@ -39,7 +39,7 @@
 
                             <div>
                                 <select class="nice-select" name="city">
-                                    <option>All Cities</option>
+                                    <option disabled>All Cities</option>
                                     @foreach ($locations as $location)
                                     <option class="{{ $location->city }}">{{ $location->city }}</option>
                                     @endforeach
@@ -48,7 +48,7 @@
 
                             <div>
                                 <select class="nice-select" name="unit_type">
-                                    <option>All Types</option>
+                                    <option disabled>All Types</option>
                                     @foreach ($projectUnitDetails as $unit)
                                          <option class="{{ $unit->unit_type }}">{{ $unit->unit_type }}</option>
                                     @endforeach

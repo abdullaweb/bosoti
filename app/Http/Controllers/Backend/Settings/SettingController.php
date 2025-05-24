@@ -54,26 +54,26 @@ class SettingController extends Controller
     {
         DB::beginTransaction();
 
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'id' => 'required|integer',
-                'name' => 'required|max:100',
-                'designation' => 'required|max:100',
-                'status' => 'required',
-                'header_logo' => 'image|max:1024',
-            ],
-            [
-                'id.required' => 'ID is required',
-                'name.required' => 'Name is required',
-                'name.max' => 'Name is too long',
-                'designation.required' => 'Designation is required',
-                'designation.max' => 'Designation is too long',
-                'status.required' => 'Status is required',
-                'header_logo.image' => 'Image must be an image',
-                'header_logo.max' => 'Image must be less than 1MB',
-            ],
-        );
+        // $validator = Validator::make(
+        //     $request->all(),
+        //     [
+        //         'id' => 'required|integer',
+        //         'name' => 'required|max:100',
+        //         'designation' => 'required|max:100',
+        //         'status' => 'required',
+        //         'header_logo' => 'image|max:1024',
+        //     ],
+        //     [
+        //         'id.required' => 'ID is required',
+        //         'name.required' => 'Name is required',
+        //         'name.max' => 'Name is too long',
+        //         'designation.required' => 'Designation is required',
+        //         'designation.max' => 'Designation is too long',
+        //         'status.required' => 'Status is required',
+        //         'header_logo.image' => 'Image must be an image',
+        //         'header_logo.max' => 'Image must be less than 1MB',
+        //     ],
+        // );
 
         try {
             $data = Setting::findOrFail($request->id);
@@ -88,7 +88,7 @@ class SettingController extends Controller
             $data->instagram = $request->instagram;
 
             if ($request->file('header_logo')) {
-                if (file_exists(base_path('public/' . $data->header_logo))) {
+                if (file_exists(base_path('public/' . $data->header_logo)) && $data->header_logo != null) {
                     unlink(base_path('public/' . $data->header_logo));
                 }
                 $header_logo = $request->file('header_logo');
@@ -101,7 +101,7 @@ class SettingController extends Controller
             }
 
             if ($request->file('footer_logo')) {
-                if (file_exists(base_path('public/' . $data->footer_logo))) {
+                if (file_exists(base_path('public/' . $data->footer_logo)) && $data->footer_logo != null) {
                     unlink(base_path('public/' . $data->footer_logo));
                 }
                 $footer_logo = $request->file('footer_logo');
@@ -123,11 +123,7 @@ class SettingController extends Controller
 
             Log::error('Error occurred while updating site setting: ' . $e->getMessage());
 
-            if ($validator->fails()) {
-                return redirect()->back()->withErrors($validator)->withInput();
-            } else {
-                return redirect()->back()->with('error', 'Something Went Wrong!');
-            }
+            return redirect()->back()->with('error', 'Something Went Wrong!');
         }
     } // End Method
 }

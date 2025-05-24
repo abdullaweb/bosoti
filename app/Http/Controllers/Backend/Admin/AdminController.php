@@ -4,14 +4,9 @@ namespace App\Http\Controllers\Backend\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
-use App\Models\Blog;
 use App\Models\Contact;
-use App\Models\OurTeam;
-use App\Models\Service;
 use App\Models\Slider;
 use App\Models\Project;
-use App\Models\ProductCategory;
-use App\Models\Product;
 use App\Models\Client;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -35,13 +30,9 @@ class AdminController extends Controller
 
         $clients = Client::get();
 
-        $categories = ProductCategory::get();
-
-        $products = Product::get();
-
         $contact_message = Contact::latest()->get();
 
-        return view('backend.admin.index', compact('slider', 'about_us', 'projects', 'clients', 'products', 'categories', 'contact_message'));
+        return view('backend.admin.index', compact('slider', 'about_us', 'projects', 'clients', 'contact_message'));
     } // End Method
 
     public function AdminLogout(Request $request)

@@ -7,7 +7,7 @@
 
                 <!--Footer Widget start-->
                 <div class="footer-widget col-lg-4 col-md-6 col-12 mb-40 fade-left-scroll">
-                    <img src="/frontend/assets/images/bosoti-logo.png" alt="">
+                    <img src="{{ siteSetting()->footer_logo }}" alt="">
                     <div class="text-white text-justify footer-text"> <p>
                         ​Bosoti Real Estate is a Bangladeshi company engaged in real estate development, offering a range of residential and commercial properties.</p> ​</div>
                     <div class="footer-social">

@@ -6,7 +6,10 @@
                 <!--Logo start-->
                 <div class="col mt-10 mb-10">
                     <div class="logo">
-                        <a href="{{ url('/') }}"><img src="{{ asset('frontend/assets/images/bosoti-logo.png') }}" alt="Logo" class="w-75"></a>
+                        <a href="{{ url('/') }}">
+                            {{-- <img src="{{ asset('frontend/assets/images/bosoti-logo.png') }}" alt="Logo" class="w-75"> --}}
+                            <img src="{{ asset(siteSetting()->header_logo)  }}" alt="Logo" class="w-75">
+                        </a>
                     </div>
                 </div>
                 <!--Logo end-->
