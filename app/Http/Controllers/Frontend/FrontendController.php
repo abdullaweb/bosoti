@@ -8,6 +8,7 @@ use App\Models\Career;
 use App\Models\Location;
 use App\Models\OurTeam;
 use App\Models\ProjectUnit;
+use App\Models\Property;
 use App\Models\Setting;
 use App\Models\Service;
 use App\Models\Project;
@@ -27,20 +28,24 @@ class FrontendController extends Controller
 
         $latestProjects = Project::latest()->take(6)->get();
 
-        return view('frontend.index', compact('locations', 'projectUnitDetails', 'projects', 'latestProjects'));
+        $properties = Property::latest()->get();
+
+        $latestProperties = Property::latest()->take(6)->get();
+
+        return view('frontend.index', compact('locations', 'projectUnitDetails', 'projects', 'latestProjects', 'properties', 'latestProperties'));
     } // End Method
 
     public function PropertyList()
     {
-        // $category = NULL;
-        // $products = Product::where('status', 'active')->latest()->get();
-        return view('frontend.pages.property');
+        $properties = Property::latest()->get();
+        return view('frontend.pages.property', compact('properties'));
     } // End Method
 
     public function PropertyDetails($slug)
     {
-        $slug = 'property-details';
-        return view('frontend.details.property_details');
+        $property = Property::where('slug', $slug)->first();
+        $propertyLatest = Property::latest()->take(4)->get();
+        return view('frontend.details.property_details', compact('property', 'propertyLatest'));
     }
     public function ProjectList()
     {

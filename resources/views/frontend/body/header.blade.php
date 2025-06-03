@@ -19,7 +19,7 @@
                     <nav class="main-menu">
                         <ul>
                             <li class="{{ request()->is('/') ? 'active' : '' }}">
-                                <a href="{{ url('/') }}">Home</a>
+                                <a href="{{ url('/') }}" class="">Home</a>
                             </li>
                             <li class="{{ request()->routeIs('frontend.about-us') ? 'active' : '' }}">
                                 <a href="{{ route('frontend.about-us') }}">

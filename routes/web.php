@@ -2,11 +2,7 @@
 
 use App\Http\Controllers\Backend\AboutUsController;
 use App\Http\Controllers\Backend\Admin\AdminController;
-use App\Http\Controllers\Backend\Blog\BlogCategoryController;
-use App\Http\Controllers\Backend\Blog\BlogController;
-use App\Http\Controllers\Backend\CareerController;
 use App\Http\Controllers\Backend\ContactController;
-use App\Http\Controllers\Backend\JobApplyController;
 use App\Http\Controllers\Backend\LocationController;
 use App\Http\Controllers\Backend\OurTeamController;
 use App\Http\Controllers\Backend\ProjectController;
@@ -15,6 +11,8 @@ use App\Http\Controllers\Backend\Settings\SettingController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ClientController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Home\PropertyController;
+use App\Http\Controllers\Home\PropertyUnitController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -140,6 +138,41 @@ Route::group(
         );
 
 
+         // Property All Routes
+        Route::group(
+            [
+                'prefix' => 'property',
+                'controller' => PropertyController::class,
+                'as' => 'property.',
+            ],
+            function () {
+                Route::get('/list', 'PropertyList')->name('list');
+                Route::get('/add', 'PropertyAdd')->name('add');
+                Route::post('/store', 'PropertyStore')->name('store');
+                Route::get('/edit/{id}', 'PropertyEdit')->name('edit');
+                Route::post('/update', 'PropertyUpdate')->name('update');
+                Route::get('/delete/{id}', 'PropertyDelete')->name('delete');
+            },
+        );
+
+         // Property Unit All Routes
+        Route::group(
+            [
+                'prefix' => 'property-unit',
+                'controller' => PropertyUnitController::class,
+                'as' => 'property-unit.',
+            ],
+            function () {
+                Route::get('/list', 'PropertyUnitList')->name('list');
+                Route::get('/add', 'PropertyUnitAdd')->name('add');
+                Route::post('/store', 'PropertyUnitStore')->name('store');
+                Route::get('/edit/{id}', 'PropertyUnitEdit')->name('edit');
+                Route::post('/update', 'PropertyUnitUpdate')->name('update');
+                Route::get('/delete/{id}', 'PropertyUnitDelete')->name('delete');
+            },
+        );
+
+
         // Client All Routes
         Route::group(
             [
@@ -229,71 +262,6 @@ Route::group(
                 Route::get('/edit/{id}', 'OurTeamEdit')->name('edit');
                 Route::post('/update', 'OurTeamUpdate')->name('update');
                 Route::get('/delete/{id}', 'OurTeamDelete')->name('delete');
-            },
-        );
-
-        // Blog Category All Routes
-        Route::group(
-            [
-                'prefix' => 'blog-category',
-                'controller' => BlogCategoryController::class,
-                'as' => 'blog-category.',
-            ],
-            function () {
-                Route::get('/list', 'BlogCategoryList')->name('list');
-                Route::get('/add', 'BlogCategoryAdd')->name('add');
-                Route::post('/store', 'BlogCategoryStore')->name('store');
-                Route::get('/edit/{id}', 'BlogCategoryEdit')->name('edit');
-                Route::post('/update', 'BlogCategoryUpdate')->name('update');
-                Route::get('/delete/{id}', 'BlogCategoryDelete')->name('delete');
-            },
-        );
-
-        // Blog All Routes
-        Route::group(
-            [
-                'prefix' => 'blog',
-                'controller' => BlogController::class,
-                'as' => 'blog.',
-            ],
-            function () {
-                Route::get('/list', 'BlogList')->name('list');
-                Route::get('/add', 'BlogAdd')->name('add');
-                Route::post('/store', 'BlogStore')->name('store');
-                Route::get('/edit/{id}', 'BlogEdit')->name('edit');
-                Route::post('/update', 'BlogUpdate')->name('update');
-                Route::get('/delete/{id}', 'BlogDelete')->name('delete');
-            },
-        );
-
-        // Career All Routes
-        Route::group(
-            [
-                'prefix' => 'career',
-                'controller' => CareerController::class,
-                'as' => 'career.',
-            ],
-            function () {
-                Route::get('/list', 'CareerList')->name('list');
-                Route::get('/add', 'CareerAdd')->name('add');
-                Route::post('/store', 'CareerStore')->name('store');
-                Route::get('/edit/{id}', 'CareerEdit')->name('edit');
-                Route::post('/update', 'CareerUpdate')->name('update');
-                Route::get('/delete/{id}', 'CareerDelete')->name('delete');
-            },
-        );
-
-        // Job Apply All Routes
-        Route::group(
-            [
-                'prefix' => 'job-apply',
-                'controller' => JobApplyController::class,
-                'as' => 'job_apply.',
-            ],
-            function () {
-                Route::get('/list', 'JobApplyList')->name('list');
-                Route::get('/delete/{id}', 'JobApplyDelete')->name('delete');
-                Route::post('/job-apply/delete-selected', 'deleteSelected')->name('deleteSelected');
             },
         );
     },

@@ -32,7 +32,7 @@
 
             <li class="dropdown {{ request()->routeIs('admin.about-us.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="user"></i>
                     <span>About Us</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -40,21 +40,41 @@
                 </ul>
             </li>
 
-            <li class="dropdown {{ request()->routeIs('admin.project.list') ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs('admin.location.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
-                    <span>Projects</span>
+                    <i data-feather="map-pin"></i>
+                    <span>Location</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.location.list') }}">Location</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown {{ request()->routeIs('admin.project.list') ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="home"></i>
+                    <span>Projects</span>
+                </a>
+                <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.project.list') }}">Projects</a></li>
                     <li><a class="nav-link" href="{{ route('admin.project-unit.list') }}">Project Unit</a></li>
                 </ul>
             </li>
 
+            <li class="dropdown {{ request()->routeIs('admin.property.list') ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="map-pin"></i>
+                    <span>Property</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.property.list') }}">Property</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.property-unit.list') }}">Property Unit</a></li>
+                </ul>
+            </li>
+
             <li class="dropdown {{ request()->routeIs('admin.client.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="users"></i>
                     <span>Clients</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -64,7 +84,7 @@
 
             <li class="dropdown {{ request()->routeIs('admin.contact.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="mail"></i>
                     <span>Contact</span>
                 </a>
                 <ul class="dropdown-menu">

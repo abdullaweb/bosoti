@@ -10,10 +10,10 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="page-banner-title">Property Details</h1>
+                <h1 class="page-banner-title">{{ $property->name }}</h1>
                 <ul class="page-breadcrumb">
                     <li><a href="{{ url('/') }}">Home</a></li>
-                    <li class="active">Property Details</li>
+                    <li class="active">{{ $property->name }}</li>
                 </ul>
             </div>
         </div>
@@ -35,39 +35,30 @@
                            
                             <div class="head">
                                 <div class="left">
-                                    <h1 class="title">Friuli-Venezia Giulia</h1>
-                                    <span class="location"><img src="{{ asset('frontend/assets/images/icons/marker.png') }}" alt="">568 E 1st Ave, Mirpur</span>
-                                </div>
-                                <div class="right">
-                                    <div class="type-wrap">
-                                        <span class="price">$550<span>Month</span></span>
-                                        <span class="type">For Rent</span>
-                                    </div>
+                                    <h1 class="title">{{ $property->name }}</h1>
+                                    <span class="location"><img src="{{ asset('frontend/assets/images/icons/marker.png') }}" alt="">{{ $property->location->address }}</span>
                                 </div>
                             </div>
                             
                             <div class="image mb-30">
-                                <img src="{{ asset('frontend/assets/images/property/single-property-1.jpg') }}" alt="">
+                                <img src="{{ asset($property->property_image) }}" alt="">
                             </div>
                             
                             <div class="content">
                                 
                                 <h3>Description</h3>
                                 
-                                <p>Bosoti real Estate ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et lore magna iqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut quipx ea codo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolo.</p>
-                                <p>Bosoti real Estateis the Best should be the consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore lore gna iqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacm emod tempor nt ut labore lore magna iqua. Ut enim ad minim veniamco laboris nisi ut aliqu.</p>
-                                <p>Bosoti real Estateis the Best should be the consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore lore gna iqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                                <div>{!! $property->description !!}</div>
                                 
                                 <div class="row mt-30 mb-30">
                                     
                                     <div class="col-md-5 col-12 mb-xs-30">
                                         <h3>Condition</h3>
                                         <ul class="feature-list">
-                                            <li><div class="image"><img src="{{ asset('frontend/assets/images/icons/area.png') }}" alt=""></div>Area 550 sqft</li>
-                                            <li><div class="image"><img src="{{ asset('frontend/assets/images/icons/bed.png') }}" alt=""></div>Bedroom 6</li>
-                                            <li><div class="image"><img src="{{ asset('frontend/assets/images/icons/bath.png') }}" alt=""></div>Bathroom 4</li>
-                                            <li><div class="image"><img src="{{ asset('frontend/assets/images/icons/parking.png') }}" alt=""></div>Garage 2</li>
-                                            <li><div class="image"><img src="{{ asset('frontend/assets/images/icons/kitchen.png') }}" alt=""></div>Kitchen 2</li>
+                                            <li><div class="image"><img src="{{ asset('frontend/assets/images/icons/area.png') }}" alt=""></div>Area {{ $property->propertyUnit->area_sqft }} sqft</li>
+                                            <li><div class="image"><img src="{{ asset('frontend/assets/images/icons/bed.png') }}" alt=""></div>Bedroom {{ $property->propertyUnit->bedrooms }}</li>
+                                            <li><div class="image"><img src="{{ asset('frontend/assets/images/icons/bath.png') }}" alt=""></div>Bathroom {{ $property->propertyUnit->bathrooms }}</li>
+                                            <li><div class="image"><img src="{{ asset('frontend/assets/images/icons/parking.png') }}" alt=""></div>Parking {{ $property->propertyUnit->floor }}</li>
                                         </ul>
                                     </div>
                                     
@@ -82,11 +73,8 @@
                                             <li>Parking</li>
                                             <li>Lift</li>
                                             <li>Pool</li>
-                                            <li>Dishwasher</li>
-                                            <li>Toaster</li>
                                         </ul>
                                     </div>
-                                    
                                 </div>
                                 
                                 <div class="row">
@@ -113,28 +101,26 @@
             </div>
             
             <div class="col-lg-4 col-12 order-2 pl-30 pl-sm-15 pl-xs-15 fade-left-scroll">
-                
-                
                 <!--Sidebar start-->
                 <div class="sidebar">
-                    <h4 class="sidebar-title"><span class="text">Feature Property</span><span class="shape"></span></h4>
+                    <h4 class="sidebar-title"><span class="text">Latest Property</span><span class="shape"></span></h4>
                     
                     <!--Sidebar Property start-->
                     <div class="sidebar-property-list">
-                        
+                        @foreach ($propertyLatest as $properties)
                         <div class="sidebar-property">
                             <div class="image">
-                                <span class="type">For Rent</span>
-                                <a href="single-properties.html"><img src="{{ asset('frontend/assets/images/property/sidebar-property-1.jpg') }}" alt=""></a>
+                                <span class="type">{{ $properties->propertyUnit->unit_type }}</span>
+                                <a href="{{ route('frontend.property.details', $properties->slug) }}"><img src="{{ asset($properties->property_image) }}" alt=""></a>
                             </div>
                             <div class="content">
-                                <h5 class="title"><a href="single-properties.html">Friuli-Venezia Giulia</a></h5>
-                                <span class="location"><img src="{{ asset('frontend/assets/images/icons/marker.png') }}" alt="">568 E 1st Ave, Mirpur</span>
-                                <span class="price">$550 <span>Month</span></span>
+                                <h5 class="title"><a href="{{ route('frontend.property.details', $properties->slug) }}">{{ $properties->name }}</a></h5>
+                                <span class="location"><img src="{{ asset('frontend/assets/images/icons/marker.png') }}" alt="">{{ $properties->location->address }}</span>
                             </div>
                         </div>
+                        @endforeach
                         
-                        <div class="sidebar-property">
+                        {{-- <div class="sidebar-property">
                             <div class="image">
                                 <span class="type">For Sale</span>
                                 <a href="single-properties.html"><img src="{{ asset('frontend/assets/images/property/sidebar-property-2.jpg') }}" alt=""></a>
@@ -156,94 +142,11 @@
                                 <span class="location"><img src="{{ asset('frontend/assets/images/icons/marker.png') }}" alt="">215 L AH Rod, California</span>
                                 <span class="price">$550 <span>Month</span></span>
                             </div>
-                        </div>
+                        </div> --}}
                         
                     </div>
                     <!--Sidebar Property end-->
                     
-                </div>
-                
-                <!--Sidebar start-->
-                <div class="sidebar">
-                    <h4 class="sidebar-title"><span class="text">Top Projects</span><span class="shape"></span></h4>
-                    
-                    <!--Sidebar Agents start-->
-                    <div class="sidebar-agent-list">
-                        
-                        <div class="sidebar-agent">
-                            <div class="image">
-                                <a href="single-properties.html"><img src="{{ asset('frontend/assets/images/projects/project-1.jpg') }}" alt=""></a>
-                            </div>
-                            <div class="content">
-                                <h5 class="title"><a href="single-properties.html"></a></h5>
-                                <a href="#" class="phone">(756) 447 5779</a>
-                                <span class="properties">5 Properties</span>
-                                <div class="social">
-                                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="sidebar-agent">
-                            <div class="image">
-                                <a href="single-properties.html"><img src="{{ asset('frontend/assets/images/projects/project-9.jpg') }}" alt=""></a>
-                            </div>
-                            <div class="content">
-                                <h5 class="title"><a href="single-properties.html">Sean Hamilton</a></h5>
-                                <a href="#" class="phone">(756) 447 5779</a>
-                                <span class="properties">5 Properties</span>
-                                <div class="social">
-                                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="sidebar-agent">
-                            <div class="image">
-                                <a href="single-properties.html"><img src="{{ asset('frontend/assets/images/projects/project-3.jpg') }}" alt=""></a>
-                            </div>
-                            <div class="content">
-                                <h5 class="title"><a href="single-properties.html">Christine Gilbert</a></h5>
-                                <a href="#" class="phone">(756) 447 5779</a>
-                                <span class="properties">5 Properties</span>
-                                <div class="social">
-                                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="skype"><i class="fa fa-skype"></i></a>
-                                    <a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <!--Sidebar Agents end-->
-                    
-                </div>
-                
-                <!--Sidebar start-->
-                <div class="sidebar">
-                    <h4 class="sidebar-title"><span class="text">Popular Tags</span><span class="shape"></span></h4>
-                    
-                    <!--Sidebar Tags start-->
-                    <div class="sidebar-tags">
-                        <a href="#">Houses</a>
-                        <a href="#">Real Home</a>
-                        <a href="#">Baths</a>
-                        <a href="#">Beds</a>
-                        <a href="#">Garages</a>
-                        <a href="#">Family</a>
-                        <a href="#">Real Estates</a>
-                        <a href="#">Properties</a>
-                        <a href="#">Location</a>
-                        <a href="#">Price</a>
-                    </div>
-                    <!--Sidebar Tags end-->
-                
                 </div>
         
             </div>

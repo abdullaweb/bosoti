@@ -15,7 +15,7 @@
                         <div class="col-12">
                             <!--Hero Content start-->
                             <div class="hero-property-content text-center">
-                                <h1 class="title"><a href="single-properties.html">{{ $slider->title }}</a></h1>
+                                <h1 class="title"><a href="{{ route('frontend.index') }}">{{ $slider->title }}</a></h1>
                                 <span class="location">
                                     {{ $slider->link }}
                                 </span>
