@@ -343,7 +343,7 @@
                             <div class="content">
                                 <div class="left">
                                     <h3 class="title"><a href="{{ route('frontend.property.details', $item->slug) }}">{{ $item->name }}</a></h3>
-                                    <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">{{ $item->location->address }}</span>
+                                    <span class="location"><img src="frontend/assets/images/icons/marker.png" alt="">{{ $item->location->city }}</span>
                                 </div>
                                 <div class="right">
                                     <div class="type-wrap">
